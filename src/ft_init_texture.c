@@ -1,42 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enums.h                                            :+:      :+:    :+:   */
+/*   ft_init_texture.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/17 11:05:37 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/18 15:30:33 by lseabra-         ###   ########.fr       */
+/*   Created: 2026/03/18 17:15:23 by lseabra-          #+#    #+#             */
+/*   Updated: 2026/03/18 17:17:53 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENUMS_H
-# define ENUMS_H
+#include "cub3d.h"
 
-typedef enum e_bool
+t_result	ft_init_texture(t_data *dt, char *buffer)
 {
-	FALSE,
-	TRUE
-}	t_bool;
-
-typedef enum e_result
-{
-	FAILURE = -1,
-	SUCCESS = 0
-}	t_result;
-
-typedef enum e_texture_id
-{
-	NO,
-	SO,
-	WE,
-	EA
-}	t_texture_id;
-
-typedef enum e_surface_id
-{
-	F,
-	C
-}	t_surface_id;
-
-#endif
+	(void)dt;
+	(void)buffer;
+	return (SUCCESS);
+}

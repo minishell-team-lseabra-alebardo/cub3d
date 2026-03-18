@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:00:50 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/18 12:35:33 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/18 17:13:32 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@
 # define BUFFER_SIZE	100
 
 # define EXTENSION	".cub"
+
+// Directions
+# define NORTH	"NO"
+# define SOUTH	"SO"
+# define WEST	"WE"
+# define EAST	"EA"
+
+// Surfaces
+# define FLOOR "F"
+# define CEILING "C"
 
 // Errors
 # define ERR_PREFIX			"Error"
@@ -31,5 +41,6 @@
 # define ERR_INV_EXT		"file extension must be '.cub'"
 # define ERR_NO_FILENAME	"filename not passed"
 # define ERR_MISS_PARAM		"missing parameter"
+# define ERR_INV_ID			"invalid information identifier"
 
 #endif

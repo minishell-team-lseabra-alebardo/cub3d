@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 17:08:22 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/18 12:29:23 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:54:19 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,6 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stddef.h>
-
-size_t	ft_strlen(char *str)
-{
-	size_t	len;
-
-	if (!str)
-		return (0);
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
 
 static void	ft_put_str_fd(int fd, char *str)
 {

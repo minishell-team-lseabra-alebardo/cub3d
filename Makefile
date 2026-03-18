@@ -6,7 +6,7 @@
 #    By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 17:29:52 by lseabra-          #+#    #+#              #
-#    Updated: 2026/03/17 17:42:47 by lseabra-         ###   ########.fr        #
+#    Updated: 2026/03/18 17:25:07 by lseabra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,13 @@ SRC_PATH	= src
 # Source files
 SRC	= $(addprefix $(SRC_PATH)/, \
 	ft_get_next_line.c \
+	ft_init_surface.c \
+	ft_init_texture.c \
+	ft_parse.c \
 	ft_put_error.c \
+	ft_validate_arg.c \
 	main.c \
+	str_utils.c \
 )
 
 # Object files

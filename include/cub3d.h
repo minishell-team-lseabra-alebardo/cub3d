@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:23:52 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/18 12:29:34 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/18 17:23:07 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,13 @@
 # include <stddef.h>
 
 t_result	ft_get_next_line(int fd, char line[MAX_LINE_SIZE + 1]);
-size_t		ft_strlen(char *str);
+t_result	ft_init_surface(t_data *dt, char *buffer);
+t_result	ft_init_texture(t_data *dt, char *buffer);
+t_result	ft_parse(t_data *dt, char *filename);
 void		ft_put_error(char *program, char *target, char *message);
+t_result	ft_validate_arg(int argc, char *argv[]);
+size_t		ft_strlen(char *str);
+int			ft_strcmp(const char *s1, const char *s2);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
