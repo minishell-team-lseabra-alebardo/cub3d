@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:15:23 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/19 15:19:05 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/19 19:19:45 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static t_texture_id	ft_get_texture_id(char	*buffer)
 	}
 }
 
-static char	*ft_get_text_str(t_texture_id id)
+static char	*ft_get_texture_str(t_texture_id id)
 {
 	if (id == NO)
 		return (NORTH);
@@ -62,7 +62,7 @@ t_result	ft_init_texture(t_data *dt, char *buffer)
 	id = ft_get_texture_id(buffer);
 	if (dt->textures[id].initialized == TRUE)
 	{
-		ft_put_error(NULL, ft_get_text_str(id), ERR_DUP_ID);
+		ft_put_error(NULL, ft_get_texture_str(id), ERR_DUP_ID);
 		return (FAILURE);
 	}
 	dt->textures[id].id = id;
@@ -70,7 +70,7 @@ t_result	ft_init_texture(t_data *dt, char *buffer)
 		buffer++;
 	if (*buffer == '\0' || *buffer == '\n')
 	{
-		ft_put_error(NULL, ft_get_text_str(id), ERR_MISS_FILENAME);
+		ft_put_error(NULL, ft_get_texture_str(id), ERR_MISS_FILENAME);
 		return (FAILURE);
 	}
 	while (*buffer == ' ')
