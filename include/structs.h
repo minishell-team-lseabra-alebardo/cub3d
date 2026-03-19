@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:06:19 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/18 17:33:07 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/19 14:56:48 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 # define STRUCTS_H
 
 # include "enums.h"
-# include <sys/types.h>
 
-typedef int	t_fd;
+typedef int				t_fd;
+typedef unsigned char	u_char;
 
 typedef struct s_texture
 {
+	t_bool			initialized;
 	t_texture_id	id;
-	char			*filename;
+	char			filename[MAX_LINE_SIZE];
 	t_fd			fd;
 }	t_texture;
 
@@ -34,8 +35,9 @@ typedef struct s_rgb
 
 typedef struct s_surface
 {
+	t_bool			initialized;
 	t_surface_id	*id;
-	char			*rgb_str;
+	char			rgb_str[MAX_LINE_SIZE];
 	t_rgb			rgb;
 }	t_surface;
 

@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:00:50 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/18 17:13:32 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/19 15:00:33 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@
 # define ERR_NO_FILENAME	"filename not passed"
 # define ERR_MISS_PARAM		"missing parameter"
 # define ERR_INV_ID			"invalid information identifier"
+# define ERR_NOT_TEXTURE	"argument is not a texture"
+# define ERR_DUP_ID			"duplicated identifier"
+# define ERR_MISS_FILENAME	"missing filename"
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:18:59 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/19 11:58:15 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/19 14:40:27 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <errno.h>
 #include <stdlib.h>
 
-static t_bool	ft_is_texture(char *buffer)
+t_bool	ft_is_texture(char *buffer)
 {
 	if (ft_strncmp(buffer, NORTH, ft_strlen(NORTH)) == 0
 		&& buffer[ft_strlen(NORTH)] == ' ')
@@ -45,7 +45,7 @@ static t_bool	ft_is_texture(char *buffer)
 	}
 }
 
-static t_bool	ft_is_surface(char *buffer)
+t_bool	ft_is_surface(char *buffer)
 {
 	if (ft_strncmp(buffer, FLOOR, ft_strlen(FLOOR)) == 0
 		&& buffer[ft_strlen(FLOOR)] == ' ')
