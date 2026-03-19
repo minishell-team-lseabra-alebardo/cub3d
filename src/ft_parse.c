@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:18:59 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/18 17:47:27 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/19 11:56:06 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,81 @@
 #include <sys/stat.h>
 #include <string.h>
 #include <errno.h>
+#include <stdlib.h>
 
 static t_bool	ft_is_texture(char *buffer)
 {
-	size_t	len;
-
-	len = ft_strlen(NORTH);
-	if (ft_strncmp(buffer, NORTH, len) == 0 && buffer[len] == ' ')
+	if (ft_strncmp(buffer, NORTH, ft_strlen(NORTH)) == 0
+		&& buffer[ft_strlen(NORTH)] == ' ')
+	{
 		return (TRUE);
+	}
 	else if (ft_strncmp(buffer, SOUTH, ft_strlen(SOUTH)) == 0
-		&& buffer[2] == ' ')
+		&& buffer[ft_strlen(SOUTH)] == ' ')
+	{
 		return (TRUE);
+	}
 	else if (ft_strncmp(buffer, WEST, ft_strlen(WEST)) == 0
-		&& buffer[2] == ' ')
+		&& buffer[ft_strlen(WEST)] == ' ')
+	{
 		return (TRUE);
+	}
 	else if (ft_strncmp(buffer, EAST, ft_strlen(EAST)) == 0
-		&& buffer[2] == ' ')
+		&& buffer[ft_strlen(EAST)] == ' ')
+	{
 		return (TRUE);
+	}
 	else
+	{
 		return (FALSE);
+	}
 }
 
 static t_bool	ft_is_surface(char *buffer)
 {
 	if (ft_strncmp(buffer, FLOOR, ft_strlen(FLOOR)) == 0
-		&& buffer[2] == ' ')
+		&& buffer[ft_strlen(FLOOR)] == ' ')
 	{
 		return (TRUE);
 	}
 	else if (ft_strncmp(buffer, CEILING, ft_strlen(CEILING)) == 0
-		&& buffer[2] == ' ')
+		&& buffer[ft_strlen(CEILING)] == ' ')
 	{
 		return (TRUE);
 	}
 	else
+	{
 		return (FALSE);
+	}
+}
+
+static t_result	ft_handle_inv_id(char *buffer)
+{
+	int		i;
+	char	*id;
+
+	if (!buffer)
+		return (FAILURE);
+	if (buffer[0] == ' ')
+	{
+		ft_put_error(NULL, "' '", ERR_INV_ID);
+		return (FAILURE);
+	}
+	i = 0;
+	while(buffer[i] && buffer[i] != '\n' && buffer[i] != ' ')
+		i++;
+	id = malloc((i + 1) * sizeof(char));
+	if (!id)
+	{
+		ft_put_error("ft_handle_inv_id()", "malloc", strerror(errno));
+		return (FAILURE);
+	}
+	id[i] = '\0';
+	while (--i >= 0)
+		id[i] = buffer[i];
+	ft_put_error(NULL, id, ERR_INV_ID);
+	free(id);
+	return (FAILURE);
 }
 
 t_result	ft_parse_information(t_data *dt, t_fd fd, char *buffer)
@@ -72,10 +112,7 @@ t_result	ft_parse_information(t_data *dt, t_fd fd, char *buffer)
 	else if (ft_is_surface(buffer) == TRUE)
 		return (ft_init_surface(dt, buffer));
 	else
-	{
-		ft_put_error(NULL, buffer, ERR_INV_ID);
-		return (FAILURE);
-	}
+		return (ft_handle_inv_id(buffer));
 }
 
 t_result	ft_parse(t_data *dt, char *filename)
