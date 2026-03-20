@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:15:23 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/19 19:19:45 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:22:18 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ t_result	ft_init_texture(t_data *dt, char *buffer)
 	i = -1;
 	while (buffer[++i] && buffer[i] != '\n' && buffer[i] != '\0')
 		dt->textures[id].filename[i] = buffer[i];
+	dt->textures[id].fd = -1;
 	dt->textures[id].initialized = TRUE;
 	return (SUCCESS);
 }
