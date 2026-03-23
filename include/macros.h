@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:00:50 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/19 18:28:54 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/23 14:32:47 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 
 # define EXTENSION	".cub"
 
-// Directions
+// Textures
 # define NORTH	"NO"
 # define SOUTH	"SO"
 # define WEST	"WE"
 # define EAST	"EA"
 
 // Surfaces
-# define FLOOR "F"
-# define CEILING "C"
+# define FLOOR		"F"
+# define CEILING	"C"
 
 // Errors
 # define ERR_PREFIX			"Error"
@@ -35,8 +35,7 @@
 # define ERR_FD_RANGE		"file descriptor must be between 0 and 1024"
 # define ERR_BUFFER_SIZE	"BUFFER_SIZE should be greater than 0"
 # define ERR_MAX_LINE_SIZE	"MAX_LINE_SIZE should be greater than 0"
-# define ERR_MISS_ARG		"missing argument: '*.cub' file"
-# define ERR_MISS_ARG		"missing argument: '*.cub' file"
+# define ERR_MISS_ARG_FILE	"missing argument: '*.cub' file"
 # define ERR_MANY_ARGS		"exactly one argument is required"
 # define ERR_INV_EXT		"file extension must be '.cub'"
 # define ERR_NO_FILENAME	"filename not passed"
@@ -45,5 +44,8 @@
 # define ERR_NOT_TEXTURE	"argument is not a texture"
 # define ERR_DUP_ID			"duplicated identifier"
 # define ERR_MISS_FILENAME	"missing filename"
+# define ERR_MISS_RGB_ARG	"RGB not passed"
+# define ERR_MISS_RGB_COMP	"missing RGB component"
+# define ERR_INV_RGB		"invalid RGB. Usage: '(0–255),(0–255),(0–255)'"
 
 #endif

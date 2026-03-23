@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 12:33:15 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/18 16:21:31 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/23 10:32:55 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_result	ft_validate_arg(int argc, char *argv[])
 {
 	if (argc < 2)
 	{
-		ft_put_error(NULL, NULL, ERR_MISS_ARG);
+		ft_put_error(NULL, NULL, ERR_MISS_ARG_FILE);
 		return (FAILURE);
 	}
 	else if (argc > 2)

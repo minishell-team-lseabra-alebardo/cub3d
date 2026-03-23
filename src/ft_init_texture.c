@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:15:23 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/20 17:22:18 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/23 14:41:06 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,32 @@ static char	*ft_get_texture_str(t_texture_id id)
 		return (NULL);
 }
 
+t_bool	ft_is_space(char c)
+{
+	if (c == 32 || (c >= 9 && c <= 13))
+		return (TRUE);
+	else
+		return (FALSE);
+}
+
+size_t	ft_calc_id_spaces_jump(char *str)
+{
+	size_t	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] && !ft_is_space(str[i]))
+		i++;
+	while (ft_is_space(str[i]))
+		i++;
+	return (i);
+}
+
 t_result	ft_init_texture(t_data *dt, char *buffer)
 {
 	t_texture_id	id;
-	size_t			i;
+	int				i;
 
 	id = ft_get_texture_id(buffer);
 	if (dt->textures[id].initialized == TRUE)
@@ -66,15 +88,12 @@ t_result	ft_init_texture(t_data *dt, char *buffer)
 		return (FAILURE);
 	}
 	dt->textures[id].id = id;
-	while (*buffer && *buffer != '\n' && *buffer != ' ')
-		buffer++;
+	buffer += ft_calc_id_spaces_jump(buffer);
 	if (*buffer == '\0' || *buffer == '\n')
 	{
 		ft_put_error(NULL, ft_get_texture_str(id), ERR_MISS_FILENAME);
 		return (FAILURE);
 	}
-	while (*buffer == ' ')
-		buffer++;
 	i = -1;
 	while (buffer[++i] && buffer[i] != '\n' && buffer[i] != '\0')
 		dt->textures[id].filename[i] = buffer[i];

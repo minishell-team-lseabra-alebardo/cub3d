@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 17:08:22 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/18 15:54:19 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/23 12:12:55 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,29 @@ static void	ft_put_str_fd(int fd, char *str)
 		perror(NULL);
 }
 
-void	ft_put_error(char *program, char *target, char *message)
+void	ft_put_error(char *pgm, char *tgt, char *msg)
 {
 	ft_put_str_fd(STDERR_FILENO, ERR_PREFIX);
-	if (program)
+	if (pgm)
 	{
 		ft_put_str_fd(STDERR_FILENO, ERR_SEP);
-		ft_put_str_fd(STDERR_FILENO, program);
+		ft_put_str_fd(STDERR_FILENO, pgm);
 	}
-	if (target)
+	if (tgt)
 	{
 		ft_put_str_fd(STDERR_FILENO, ERR_SEP);
-		ft_put_str_fd(STDERR_FILENO, target);
+		ft_put_str_fd(STDERR_FILENO, tgt);
 	}
-	if (message)
+	if (msg)
 	{
 		ft_put_str_fd(STDERR_FILENO, ERR_SEP);
-		ft_put_str_fd(STDERR_FILENO, message);
+		ft_put_str_fd(STDERR_FILENO, msg);
 	}
 	write(STDERR_FILENO, "\n", 1);
+}
+
+int	ft_p_err_ret(char *pgm, char *tgt, char *msg, int ret)
+{
+	ft_put_error(pgm, tgt, msg);
+	return (ret);
 }
