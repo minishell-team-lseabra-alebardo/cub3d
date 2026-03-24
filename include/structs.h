@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:06:19 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/19 19:21:08 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/24 21:27:14 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define STRUCTS_H
 
 # include "enums.h"
+# include <stdio.h>
 
 typedef int				t_fd;
 typedef unsigned char	t_u_char;
@@ -43,10 +44,14 @@ typedef struct s_surface
 
 typedef struct s_map
 {
+	char	grid[MAX_MAP_ROWS][MAX_LINE_SIZE];
+	t_u_char	player_spawn[2];
+	size_t		row_count;
 }	t_map;
 
 typedef struct s_data
 {
+	t_fd		file_fd;
 	t_texture	textures[4];
 	t_surface	surfaces[2];
 	t_map		map;

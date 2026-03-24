@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:18:59 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/19 14:40:27 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/24 17:24:27 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,16 +92,16 @@ static t_result	ft_handle_inv_id(char *buffer)
 	return (FAILURE);
 }
 
-t_result	ft_parse_information(t_data *dt, t_fd fd, char *buffer)
+t_result	ft_parse_information(t_data *dt, char *buffer)
 {
-	if (ft_get_next_line(fd, buffer) != SUCCESS)
+	if (ft_get_next_line(dt->file_fd, buffer) != SUCCESS)
 	{
 		ft_put_error("ft_parse_information()", NULL, NULL);
 		return (FAILURE);
 	}
 	while (buffer && buffer[0] == '\n')
 	{
-		if (ft_get_next_line(fd, buffer) != SUCCESS)
+		if (ft_get_next_line(dt->file_fd, buffer) != SUCCESS)
 		{
 			ft_put_error("ft_parse_information()", NULL, NULL);
 			return (FAILURE);
@@ -118,11 +118,10 @@ t_result	ft_parse_information(t_data *dt, t_fd fd, char *buffer)
 t_result	ft_parse(t_data *dt, char *filename)
 {
 	int		i;
-	t_fd	fd;
 	char	buffer[MAX_LINE_SIZE + 1];
 
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+	dt->file_fd = open(filename, O_RDONLY);
+	if (dt->file_fd < 0)
 	{
 		ft_put_error("ft_parse()", filename, strerror(errno));
 		return (FAILURE);
@@ -130,9 +129,11 @@ t_result	ft_parse(t_data *dt, char *filename)
 	i = 0;
 	while (i < 6)
 	{
-		if (ft_parse_information(dt, fd, buffer) != SUCCESS)
+		if (ft_parse_information(dt, buffer) != SUCCESS)
 			return (FAILURE);
 		i++;
 	}
+	if (ft_parse_map(dt) != SUCCESS)
+		return (FAILURE);
 	return (SUCCESS);
 }
