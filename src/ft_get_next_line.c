@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:00:06 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/17 18:03:55 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/24 21:15:21 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static t_result	ft_validate_fd(int fd)
 		return (SUCCESS);
 }
 
-t_result	ft_get_next_line(int fd, char line[MAX_LINE_SIZE + 1])
+t_result	ft_get_next_line(int fd, char line[MAX_LINE_SIZE])
 {
-	static char	buffer[BUFFER_SIZE + 1];
+	static char	buffer[BUFFER_SIZE];
 	static int	buf_pos;
 	static int	buf_len;
 	int			line_pos;
@@ -41,14 +41,14 @@ t_result	ft_get_next_line(int fd, char line[MAX_LINE_SIZE + 1])
 		if (buf_pos >= buf_len)
 		{
 			buf_pos = 0;
-			buf_len = read(fd, buffer, BUFFER_SIZE);
+			buf_len = read(fd, buffer, BUFFER_SIZE - 1);
 			if (buf_len < 0)
 				return (FAILURE);
 			else if (buf_len == 0)
 				break ;
 		}
 		line[line_pos++] = buffer[buf_pos++];
-		if (line[line_pos - 1] == '\n' || line_pos >= MAX_LINE_SIZE)
+		if (line[line_pos - 1] == '\n' || line_pos >= MAX_LINE_SIZE - 1)
 			break ;
 	}
 	line[line_pos] = '\0';
