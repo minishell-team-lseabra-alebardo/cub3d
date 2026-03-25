@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:05:37 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/18 15:30:33 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/25 11:30:06 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef enum e_texture_id
 {
 	NO,
 	SO,
-	WE,
-	EA
+	EA,
+	WE
 }	t_texture_id;
 
 typedef enum e_surface_id
