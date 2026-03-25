@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:00:50 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/24 21:24:05 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/25 15:18:27 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // ft_get_next_line.c
 # define MAX_MAP_ROWS	64
 # define MAX_LINE_SIZE	512
-# define BUFFER_SIZE	100
+# define BUFFER_SIZE	128
 
 # define EXTENSION	".cub"
 
@@ -29,6 +29,10 @@
 // Surfaces
 # define FLOOR		"F"
 # define CEILING	"C"
+
+// Map
+# define DIRECTIONS	"NSEW"
+# define MAP_TILES	"01"
 
 // Errors
 # define ERR_PREFIX			"Error"
@@ -48,5 +52,8 @@
 # define ERR_MISS_RGB_ARG	"RGB not passed"
 # define ERR_MISS_RGB_COMP	"missing RGB component"
 # define ERR_INV_RGB		"invalid RGB. Usage: '(0–255),(0–255),(0–255)'"
+# define ERR_MULT_SPAWN		"multiple player spawns detected"
+# define ERR_NO_SPAWN		"no spawn detected"
+# define ERR_INV_C			"invalid character detected"
 
 #endif

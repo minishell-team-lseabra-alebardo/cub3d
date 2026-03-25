@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:06:19 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/24 21:27:14 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/25 14:11:15 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,17 @@ typedef struct s_surface
 	t_rgb			rgb;
 }	t_surface;
 
+typedef struct s_spawn
+{
+	int		row;
+	int		col;
+	char	direction;
+}	t_spawn;
+
 typedef struct s_map
 {
-	char	grid[MAX_MAP_ROWS][MAX_LINE_SIZE];
-	t_u_char	player_spawn[2];
+	char		grid[MAX_MAP_ROWS][MAX_LINE_SIZE];
+	t_spawn		player_spawn;
 	size_t		row_count;
 }	t_map;
 
