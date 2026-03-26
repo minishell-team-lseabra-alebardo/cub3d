@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:18:59 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/24 17:24:27 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/26 13:39:56 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,17 +95,11 @@ static t_result	ft_handle_inv_id(char *buffer)
 t_result	ft_parse_information(t_data *dt, char *buffer)
 {
 	if (ft_get_next_line(dt->file_fd, buffer) != SUCCESS)
-	{
-		ft_put_error("ft_parse_information()", NULL, NULL);
 		return (FAILURE);
-	}
 	while (buffer && buffer[0] == '\n')
 	{
 		if (ft_get_next_line(dt->file_fd, buffer) != SUCCESS)
-		{
-			ft_put_error("ft_parse_information()", NULL, NULL);
 			return (FAILURE);
-		}
 	}
 	if (ft_is_texture(buffer) == TRUE)
 		return (ft_init_texture(dt, buffer));

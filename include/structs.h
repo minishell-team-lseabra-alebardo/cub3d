@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:06:19 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/25 14:11:15 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/26 16:48:06 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,12 @@ typedef struct s_data
 	t_surface	surfaces[2];
 	t_map		map;
 }	t_data;
+
+typedef struct s_gnl_state
+{
+	char	buffer[BUFFER_SIZE];
+	int		buf_pos;
+	int		buf_len;
+}	t_gnl_state;
 
 #endif
