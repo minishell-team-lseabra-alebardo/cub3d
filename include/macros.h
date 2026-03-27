@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:00:50 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/26 13:44:36 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/27 18:28:12 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@
 # define ERR_MULT_SPAWN		"multiple player spawns detected"
 # define ERR_NO_SPAWN		"no spawn detected"
 # define ERR_INV_C			"invalid character detected"
+# define ERR_MAP_OPEN		"map has invalid or unreachable areas"
 
 #endif

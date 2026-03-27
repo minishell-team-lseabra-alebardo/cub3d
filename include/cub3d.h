@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:23:52 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/26 13:32:17 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/27 18:31:57 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_result	ft_parse(t_data *dt, char *filename);
 void		ft_put_error(char *pgm, char *tgt, char *msg);
 int			ft_p_err_ret(char *pgm, char *tgt, char *msg);
 t_result	ft_validate_arg(int argc, char *argv[]);
+t_result	ft_validate_map_boundaries(t_map map);
+t_result	ft_validate_map_content(t_map *map);
 size_t		ft_strlen(char *str);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);

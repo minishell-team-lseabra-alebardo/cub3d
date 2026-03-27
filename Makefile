@@ -6,7 +6,7 @@
 #    By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 17:29:52 by lseabra-          #+#    #+#              #
-#    Updated: 2026/03/24 21:05:00 by lseabra-         ###   ########.fr        #
+#    Updated: 2026/03/27 18:31:04 by lseabra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,8 @@ SRC	= $(addprefix $(SRC_PATH)/, \
 	ft_parse.c \
 	ft_put_error.c \
 	ft_validate_arg.c \
+	ft_validate_map_boundaries.c \
+	ft_validate_map_content.c \
 	main.c \
 	str_utils.c \
 )
