@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:18:59 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/26 13:39:56 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/03/27 20:01:45 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ t_result	ft_parse_information(t_data *dt, char *buffer)
 t_result	ft_parse(t_data *dt, char *filename)
 {
 	int		i;
-	char	buffer[MAX_LINE_SIZE + 1];
+	char	buffer[MAX_LINE_SIZE];
 
 	dt->file_fd = open(filename, O_RDONLY);
 	if (dt->file_fd < 0)
