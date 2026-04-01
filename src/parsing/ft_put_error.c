@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: alebarbo <alebarbo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 17:08:22 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/26 13:31:19 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/04/01 22:40:06 by alebarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <stddef.h>
 
 static void	ft_put_str_fd(int fd, char *str)
 {

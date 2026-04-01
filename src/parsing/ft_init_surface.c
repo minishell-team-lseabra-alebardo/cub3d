@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_surface.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: alebarbo <alebarbo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:15:23 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/23 14:32:27 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/04/01 22:39:15 by alebarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <errno.h>
 
 static t_surface_id	ft_get_surface_id(char *buffer)
 {

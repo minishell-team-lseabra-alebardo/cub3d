@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: alebarbo <alebarbo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:23:52 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/27 18:31:57 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/04/01 23:54:00 by alebarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 # include "structs.h"
 
 # include <stddef.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <errno.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <sys/stat.h>
+# include <string.h>
+# include <math.h>
+# include <mlx.h>
 
 t_result	ft_get_next_line(int fd, char line[MAX_LINE_SIZE]);
 char		*ft_get_surface_str(t_surface_id id);
@@ -38,5 +47,8 @@ t_result	ft_validate_map_content(t_map *map);
 size_t		ft_strlen(char *str);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_open_window(t_graphics *graphics);
+int			ft_close_program(t_graphics *graphics);
+void		ft_game_loop(t_data *dt, t_graphics *graphics);
 
 #endif

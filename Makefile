@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+         #
+#    By: alebarbo <alebarbo@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 17:29:52 by lseabra-          #+#    #+#              #
-#    Updated: 2026/03/31 15:12:32 by lseabra-         ###   ########.fr        #
+#    Updated: 2026/04/01 23:16:22 by alebarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,12 +31,14 @@ PROJ_NAME	= CUB3D
 #Paths
 BUILD_PATH		= build
 INC_PATH		= include
+MLX_PATH		= minilibx-linux
 SRC_PATH		= src
 PARSING_PATH	= $(SRC_PATH)/parsing
+RAYCASTING_PATH	= $(SRC_PATH)/raycasting
 
 # Source files
 
-PARSING_SRC = $(addprefix $(PARSING_PATH)/, \
+PARSING_SRC	= $(addprefix $(PARSING_PATH)/, \
 	ft_get_next_line.c \
 	ft_init_surface.c \
 	ft_init_texture.c \
@@ -50,7 +52,11 @@ PARSING_SRC = $(addprefix $(PARSING_PATH)/, \
 	str_utils.c \
 )
 
-SRC	= $(PARSING_SRC) $(addprefix $(SRC_PATH)/, \
+RAYCASTING_SRC	= $(addprefix $(RAYCASTING_PATH)/, \
+	ft_mlx_elements.c \
+)
+
+SRC	= $(PARSING_SRC) $(RAYCASTING_SRC) $(addprefix $(SRC_PATH)/, \
 		main.c \
 )
 
@@ -60,7 +66,8 @@ OBJ	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRC:.c=.o)))
 #Compiler and Flags
 CC		= cc
 C_FLAGS	= -Wall -Wextra -Werror -g
-INC		= -I$(INC_PATH)
+INC		= -I$(INC_PATH) -I$(MLX_PATH)
+LIB		= -lmlx -Lminilibx-linux -L/usr/lib -lX11 -lXext -lm
 ASAN	= -fsanitize=address
 
 #Utility Commands
@@ -76,13 +83,16 @@ ECHO	= echo
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(C_FLAGS) $(ASAN) $(INC) $(OBJ) -o $@
+	@$(CC) $(C_FLAGS) $(ASAN) $(INC) $(OBJ) $(LIB) -o $@
 	@$(ECHO) "$(GREEN)[$(PROJ_NAME)]:$(RESET) executable compiled: $(NAME)"
 
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.c | $(BUILD_PATH)
 	@$(CC) $(C_FLAGS) $(INC) -c $< -o $@
 
 $(BUILD_PATH)/%.o: $(PARSING_PATH)/%.c | $(BUILD_PATH)
+	@$(CC) $(C_FLAGS) $(INC) -c $< -o $@
+
+$(BUILD_PATH)/%.o: $(RAYCASTING_PATH)/%.c | $(BUILD_PATH)
 	@$(CC) $(C_FLAGS) $(INC) -c $< -o $@
 
 $(BUILD_PATH):

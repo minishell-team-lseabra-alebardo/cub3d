@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: alebarbo <alebarbo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:00:50 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/27 20:29:13 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/04/01 23:33:53 by alebarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@
 // Map
 # define DIRECTIONS	"NSEW"
 # define MAP_TILES	"01"
+
+// Graphics
+# define WIN_WIDTH	800
+# define WIN_HEIGHT	600
+
+// Keys
+# define KEY_ESC	0xff1b
 
 // Errors
 # define ERR_PREFIX			"Error"
