@@ -6,7 +6,7 @@
 /*   By: alebarbo <alebarbo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:00:50 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/04/01 23:33:53 by alebarbo         ###   ########.fr       */
+/*   Updated: 2026/04/02 21:42:31 by alebarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@
 # define MAP_TILES	"01"
 
 // Graphics
-# define WIN_WIDTH	800
-# define WIN_HEIGHT	600
+# define WIN_WIDTH	1024
+# define WIN_HEIGHT	720
 
 // Keys
 # define KEY_ESC	0xff1b

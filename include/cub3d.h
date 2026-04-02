@@ -6,7 +6,7 @@
 /*   By: alebarbo <alebarbo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:23:52 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/04/02 18:00:24 by alebarbo         ###   ########.fr       */
+/*   Updated: 2026/04/02 21:58:25 by alebarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ int			ft_open_window(t_data *dt);
 int			ft_close_program(t_data *dt);
 void		ft_game_loop(t_data *dt);
 int			ft_key_events(int keycode, void *param);
+void		ft_floor_img(t_data *dt);
+void		ft_ceiling_img(t_data *dt);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: alebarbo <alebarbo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:06:19 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/04/02 17:56:54 by alebarbo         ###   ########.fr       */
+/*   Updated: 2026/04/02 21:14:48 by alebarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,21 @@ typedef struct s_map
 	int			row_count;
 }	t_map;
 
+typedef struct s_img
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_img;
+
 typedef struct s_graphics
 {
 	void	*mlx;
 	void	*window;
+	t_img	floor;
+	t_img	ceiling;
 }	t_graphics;
 
 typedef struct s_data
