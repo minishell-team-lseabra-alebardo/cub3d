@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alebarbo <alebarbo@student.42porto.com>    +#+  +:+       +#+         #
+#    By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 17:29:52 by lseabra-          #+#    #+#              #
-#    Updated: 2026/04/02 21:14:20 by alebarbo         ###   ########.fr        #
+#    Updated: 2026/04/04 19:23:34 by lseabra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ RESET	= \033[0m
 #Names
 NAME		= cub3d
 PROJ_NAME	= CUB3D
+MLX_NAME	= $(MLX_PATH)/libmlx.a
 
 #Paths
 BUILD_PATH		= build
@@ -84,7 +85,7 @@ ECHO	= echo
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(MLX_NAME)
 	@$(CC) $(C_FLAGS) $(ASAN) $(INC) $(OBJ) $(LIB) -o $@
 	@$(ECHO) "$(GREEN)[$(PROJ_NAME)]:$(RESET) executable compiled: $(NAME)"
 
@@ -100,6 +101,9 @@ $(BUILD_PATH)/%.o: $(RAYCASTING_PATH)/%.c | $(BUILD_PATH)
 $(BUILD_PATH):
 	@$(MKDIR) $(BUILD_PATH)
 	@$(ECHO) "$(GREEN)[$(PROJ_NAME)]:$(RESET) directory created: $(BUILD_PATH)"
+
+$(MLX_NAME):
+	@$(MAKE) -s -C $(MLX_PATH)
 
 clean:
 	@$(RMDIR) $(BUILD_PATH)
