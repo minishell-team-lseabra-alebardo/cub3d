@@ -6,7 +6,7 @@
 /*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:12:26 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/03/27 20:51:51 by lseabra-         ###   ########.fr       */
+/*   Updated: 2026/04/04 19:10:55 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static t_result	ft_get_clean_map_row(t_data *dt, size_t row)
 {
 	char	line[MAX_LINE_SIZE];
-	size_t	i;
+	int		i;
 
 	if (ft_get_next_line(dt->file_fd, line) != SUCCESS)
 		return (FAILURE);
@@ -32,6 +32,8 @@ static t_result	ft_get_clean_map_row(t_data *dt, size_t row)
 		i++;
 	}
 	dt->map.grid[row][i] = '\0';
+	if (i > dt->map.max_line_len)
+		dt->map.max_line_len = i;
 	return (SUCCESS);
 }
 

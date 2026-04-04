@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alebarbo <alebarbo@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: lseabra- <lseabra-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:06:19 by lseabra-          #+#    #+#             */
-/*   Updated: 2026/04/02 21:14:48 by alebarbo         ###   ########.fr       */
+/*   Updated: 2026/04/04 19:02:58 by lseabra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_map
 	char		grid[MAX_MAP_ROWS][MAX_MAP_COLS];
 	t_spawn		player_spawn;
 	int			row_count;
+	int			max_line_len;
 }	t_map;
 
 typedef struct s_img
